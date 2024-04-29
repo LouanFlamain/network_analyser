@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  alpine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nmap_analyser
+    restart: on-failure
+    ports:
+      - "9000:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/http.d/default.conf
+      - ./app:/var/www/app
+      - ./app/vendor:/var/www/app/vendor
+      - ./app/var:/var/www/app/var
+  db:
+    image: mariadb:latest
+    restart: always
+    ports:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: na_db
+      MYSQL_USER: louan
+      MYSQL_PASSWORD: Dissidence0970*
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 1333:8080
+
+volumes:
+  db-data:
+  vendor:
+  var:
