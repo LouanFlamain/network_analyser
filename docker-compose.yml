@@ -20,10 +20,10 @@ services:
     ports:
       - 3306
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: "DtJ9fz%Z9%fSymQRQ4&"
       MYSQL_DATABASE: na_db
       MYSQL_USER: louan
-      MYSQL_PASSWORD: Dissidence0970*
+      MYSQL_PASSWORD: "DtJ9fz%Z9%fSymQRQ4&"
     volumes:
       - db-data:/var/lib/mysql
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
