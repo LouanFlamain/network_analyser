@@ -45,12 +45,11 @@ security:
   access_control:
     # - { path: ^/admin, roles: ROLE_ADMIN }
     # - { path: ^/profile, roles: ROLE_USER }
+    - { path: ^/register, roles: PUBLIC_ACCESS }
     - { path: ^/dashboard, roles: IS_AUTHENTICATED_FULLY }
     - { path: ^/manage, roles: ROLE_ADMIN }
     - { path: ^/manage/state, roles: ROLE_ADMIN }
     - { path: ^/manage/pseudo, roles: ROLE_ADMIN }
-    - { path: ^/register, roles: ROLE_ADMIN }
-
 when@test:
   security:
     password_hashers:
