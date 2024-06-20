@@ -14,7 +14,7 @@ services:
       - ./app:/var/www/app
       - ./app/vendor:/var/www/app/vendor
       - ./app/var:/var/www/app/var
-      - /project/web/network_analyser/arp_scan_output.xml:/var/www/app/arp_scan_output.xml
+      - /home/louan/web/network_analyser/arp_scan_output.xml:/var/www/app/arp_scan_output.xml
   db:
     image: mariadb:latest
     restart: always
