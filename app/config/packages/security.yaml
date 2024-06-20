@@ -50,6 +50,7 @@ security:
     - { path: ^/manage, roles: ROLE_ADMIN }
     - { path: ^/manage/state, roles: ROLE_ADMIN }
     - { path: ^/manage/pseudo, roles: ROLE_ADMIN }
+    - { path: ^/register, roles: ROLE_ADMIN }
 when@test:
   security:
     password_hashers:
