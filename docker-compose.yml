@@ -8,12 +8,13 @@ services:
     container_name: nmap_analyser
     restart: on-failure
     ports:
-      - "9000:80"
+      - "9000:9000"
     volumes:
-      - ./nginx.conf:/etc/nginx/http.d/default.conf
+      #- ./nginx.conf:/etc/nginx/http.d/default.conf
       - ./app:/var/www/app
       - ./app/vendor:/var/www/app/vendor
       - ./app/var:/var/www/app/var
+      - ./app/public/build:/var/www/app/public/build
       - /home/louan/web/network_analyser/arp_scan_output.xml:/var/www/app/arp_scan_output.xml
   db:
     image: mariadb:latest

@@ -3,7 +3,7 @@ FROM php:8.1.5-fpm-alpine3.15
 # Installer les dépendances nécessaires pour PHP et les outils communs
 RUN apk update \
     && apk add --no-cache $PHPIZE_DEPS \
-       openssl-dev bash git nano \
+       openssl-dev nginx bash git nano \
        icu-dev libzip-dev libxml2-dev oniguruma-dev \
        libpng-dev libxslt-dev
 
@@ -26,9 +26,5 @@ RUN apk add --no-cache nodejs npm
 # Configurer le répertoire de travail
 WORKDIR /var/www
 
-EXPOSE 9000
-
 # Configurer le processus principal pour exécuter nginx et PHP-FPM
-CMD ["php-fpm"]
-
-
+CMD ["sh", "-c", "nginx && php-fpm"]
