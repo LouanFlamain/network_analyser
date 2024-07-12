@@ -15,6 +15,9 @@ services:
       - ./app/vendor:/var/www/app/vendor
       - ./app/var:/var/www/app/var
       - /home/louan/web/network_analyser/arp_scan_output.xml:/var/www/app/arp_scan_output.xml
+    networks:
+      - nginx-proxy
+
   db:
     image: mariadb:latest
     restart: always
@@ -34,8 +37,14 @@ services:
     restart: always
     ports:
       - 1333:8080
+    networks:
+      - nginx-proxy
 
 volumes:
   db-data:
   vendor:
   var:
+
+networks:
+  nginx-proxy:
+    external: true
